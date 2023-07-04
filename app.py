@@ -63,20 +63,20 @@ if selected =="Data Entry":
             col1.selectbox("Select Month:",month, key = "month")
             col2.selectbox("Select Year:",year,key = "year")
 
-
-    slt.write("---")
-    with slt.expander("Income"):
-        for income in incomes:
-            slt.number_input(f"{income}:", min_value = 0,format="%i", step = 10,key=income)
-
-    with slt.expander("Expense"):
-        for expense in expenses:
-            slt.number_input(f"{expense}:", min_value = 0, format ="%i",step=10, key=expense)
-    with slt.expander("Comment"):
-        comment = slt.text_area("", placeholder = "Enter a coment here ...")
-    slt.write("---")
-    submitted = form.form_submit_button("Save Data")
-    #authenticator.logout("Logout", "main")
+    with form:
+            slt.write("---")
+            with slt.expander("Income"):
+                for income in incomes:
+                    slt.number_input(f"{income}:", min_value = 0,format="%i", step = 10,key=income)
+        
+            with slt.expander("Expense"):
+                for expense in expenses:
+                    slt.number_input(f"{expense}:", min_value = 0, format ="%i",step=10, key=expense)
+            with slt.expander("Comment"):
+                comment = slt.text_area("", placeholder = "Enter a coment here ...")
+            slt.write("---")
+            submitted = form.form_submit_button("Save Data")
+            #authenticator.logout("Logout", "main")
 
 
     if submitted:
